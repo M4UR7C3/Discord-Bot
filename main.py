@@ -3,6 +3,7 @@ from discord.ext import commands
 import pytz
 from datetime import datetime
 
+
 class PythonBot(commands.Bot):
 
     def __init__(self, command_prefix, **options):
@@ -38,8 +39,25 @@ class PythonBot(commands.Bot):
                     guild: discord.Guild = bot.get_guild(553172923083390977)
                     channel: discord.TextChannel = guild.get_channel(917058505612091424)
 
-                    role: discord.Role = guild.get_role(917060659852771408)
+                    role: discord.Role = guild.get_role(917091524980932629)
                     await payload.member.add_roles(role, reason="Zuweisung")
+        if payload.channel_id == 917058505612091424:
+            if payload.message_id == 917063034378256394:
+                if payload.emoji.name == 'GolfIt':
+                    guild: discord.Guild = bot.get_guild(553172923083390977)
+                    channel: discord.TextChannel = guild.get_channel(917058505612091424)
+
+                    role: discord.Role = guild.get_role(917098418101436496)
+                    await payload.member.add_roles(role, reason="Zuweisung")
+        if payload.channel_id == 917058505612091424:
+            if payload.message_id == 917063034378256394:
+                if payload.emoji.name == 'RL':
+                    guild: discord.Guild = bot.get_guild(553172923083390977)
+                    channel: discord.TextChannel = guild.get_channel(917058505612091424)
+
+                    role: discord.Role = guild.get_role(917099281100455976)
+                    await payload.member.add_roles(role, reason="Zuweisung")
+
 
 bot = PythonBot(intents=discord.Intents.all(), command_prefix='!')
 
@@ -59,7 +77,7 @@ async def test(ctx, member: discord.Member):
     embed.add_field(name='Nickname', value=f'```{(member.nick if member.nick else "Nicht gesetzt")}```', inline=True)
     embed.add_field(name='Server beigetreten', value=f'```{member.joined_at}```', inline=True)
     embed.add_field(name='Discord beigetreten', value=f'```{member.created_at}```', inline=True)
-    embed.add_field(name='Rollen', value=f'```{len(member.roles) -1}```', inline=True)
+    embed.add_field(name='Rollen', value=f'```{len(member.roles) - 1}```', inline=True)
     embed.add_field(name='Höchste Rolle', value=f'```{member.top_role.name}```', inline=True)
     embed.add_field(name='Farbe', value=f'```{member.color}```', inline=True)
     embed.add_field(name='Booster', value=f'```{("Ja" if member.premium_since else "Nein")}```', inline=True)
@@ -67,4 +85,4 @@ async def test(ctx, member: discord.Member):
     await ctx.send(embed=embed)
 
 
-bot.run('OTE2NzUzMzQwMTQ5NDAzNzA4.YauvFA.3qdE-w2FVsJt-DsmoExJcXeBC7k')
+bot.run('Token')
